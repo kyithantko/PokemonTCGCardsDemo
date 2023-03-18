@@ -3,6 +3,7 @@ import {Provider as PaperProvider} from 'react-native-paper';
 import {QueryClient, QueryClientProvider, focusManager} from 'react-query';
 import {Provider} from 'react-redux';
 import store from './src/redux/store';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import RootNavigator from './src/navigators/RootNavigator';
 import useOnlineManager from './src/hooks/useOnlineManager';
 import useAppState from './src/hooks/useAppState';
@@ -25,7 +26,9 @@ const App = () => {
     <PaperProvider>
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
-          <RootNavigator />
+          <SafeAreaView style={{flex: 1}}>
+            <RootNavigator />
+          </SafeAreaView>
         </Provider>
       </QueryClientProvider>
     </PaperProvider>
