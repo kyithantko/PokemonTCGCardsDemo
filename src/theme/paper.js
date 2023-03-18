@@ -2,8 +2,9 @@ import {DefaultTheme} from 'react-native-paper';
 
 const COLOURS = {
   ...DefaultTheme.colors,
-  // Paper
   primaryFontColor: '#1D1C1C',
+  secondaryFontColor: '#A5A5A5',
+  buttonColor: '#4789F5',
 };
 
 const THEME = {
