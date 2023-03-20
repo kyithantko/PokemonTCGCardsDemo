@@ -16,6 +16,7 @@ import {
   increaseCount,
   decreaseCount,
   removeFromCart,
+  removeAllCart
 } from '../../redux/slices/cartSlice';
 
 export default function CartModal({
@@ -198,6 +199,9 @@ export default function CartModal({
             marginBottom: 30,
             marginHorizontal: 100,
           }}>
+            <TouchableOpacity onPress={()=>dispatch(removeAllCart([]))}>
+            <Text style={{marginBottom: 20, textAlign: 'center', fontSize: 12, textDecorationLine: 'underline'}}>Clear All</Text>
+            </TouchableOpacity>
           <View
             style={{
               flexDirection: 'row',
@@ -241,6 +245,7 @@ export default function CartModal({
           onPress={() => {
             setModalVisible(false);
             setSuccessModalVisible(true);
+            dispatch(removeAllCart([]))
           }}>
           <Text style={{fontSize: 14, color: '#ffffff'}}>Pay now</Text>
         </TouchableOpacity>

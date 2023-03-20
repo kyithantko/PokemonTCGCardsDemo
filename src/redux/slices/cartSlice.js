@@ -16,6 +16,9 @@ export const cartSlice = createSlice({
         ...state.items.filter(item => item.card.id !== action.payload.id),
       ];
     },
+    removeAllCart: (state, action) => {
+      state.items = action.payload;
+    },
     increaseCount: (state, action) => {
       let temp = state.items;
       const index = temp.findIndex(obj => {
@@ -39,7 +42,12 @@ export const cartSlice = createSlice({
   },
 });
 
-export const {addToCart, removeFromCart, increaseCount, decreaseCount} =
-  cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  increaseCount,
+  decreaseCount,
+  removeAllCart,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;
