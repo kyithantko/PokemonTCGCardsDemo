@@ -34,6 +34,7 @@ export default function HomeScreen({navigation}) {
 
   const {data, error, fetchNextPage, hasNextPage, isFetchingNextPage, status} =
     useCards();
+  // console.log(data);
   const {data: rarities, isLoading: raritiesLoading} = useRarities();
   const {data: types, isLoading: typesLoading} = useTypes();
   const cart = useSelector(state => state.cart);
@@ -216,6 +217,7 @@ export default function HomeScreen({navigation}) {
             {data.pages.map((group, i) => (
               <View key={i}>
                 {group.data.map(card => {
+                  // console.log(card)
                   const isInCart = cart.items.find(
                     item => item.card.id === card.id,
                   );

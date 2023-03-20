@@ -26,6 +26,8 @@ export default function CartModal({
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
 
+  console.log(cart.items)
+
   const totalCard = cart.items.reduce(
     (partialSum, a) => partialSum + a.count,
     0,
@@ -51,6 +53,7 @@ export default function CartModal({
           <TouchableWithoutFeedback>
             <View style={styles.modalView}>
               {cart.items.map(item => (
+              
                 <View key={item.card.id}>
                   <View
                     style={{
@@ -61,7 +64,8 @@ export default function CartModal({
                     }}>
                     <View style={{flexDirection: 'row'}}>
                       <Image
-                        source={require('../../assets/images/pokemon_logo.webp')}
+                      
+                        source={{uri: item.card.images.small}}
                         style={{
                           width: '33%',
 
